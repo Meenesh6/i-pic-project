@@ -1,4 +1,4 @@
-fetch('http://localhost:3000/api/products')
+fetch('https://i-pic-backend.onrender.com/api/products')
   .then(res => res.json())
   .then(products => {
     const container = document.getElementById('product-list');

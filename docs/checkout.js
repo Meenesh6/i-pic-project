@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Send order to backend
-    fetch('http://localhost:3000/api/orders', {
+    fetch('https://i-pic-backend.onrender.com/api/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
