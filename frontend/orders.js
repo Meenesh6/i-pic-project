@@ -1,4 +1,4 @@
-fetch('http://localhost:3000/api/orders')
+fetch('https://i-pic-backend.onrender.com/api/orders')
   .then(res => res.json())
   .then(orders => {
     const ordersList = document.getElementById('orders-list');
@@ -18,7 +18,7 @@ fetch('http://localhost:3000/api/orders')
         <p><strong>Total:</strong> ₹${order.total}</p>
         <p><strong>Date:</strong> ${new Date(order.placedAt).toLocaleString()}</p>
         <ul>
-          ${order.cart.map(item => `<li>${item.name} - ₹${item.price}</li>`).join('')}
+          ${order.cart.map(item => <li>${item.name} - ₹${item.price}</li>).join('')}
         </ul>
         <hr/>
       `;

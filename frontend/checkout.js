@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const total = cart.reduce((sum, item) => sum + item.price, 0);
   document.getElementById('total-checkout').textContent = `Total: ₹${total}`;
 
-
   document.getElementById('checkout-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -21,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
       total
     };
 
-    // Send order to backend
-    fetch('http://localhost:3000/api/orders', {
+    // ✅ Use your actual backend URL from Render below:
+    fetch('https://i-pic-backend.onrender.com///api/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -33,17 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       if (data.success) {
         const successMsg = document.getElementById('success-msg');
-successMsg.style.display = 'block';
-
-setTimeout(() => {
-  successMsg.style.display = 'none';
-}, 10000); // hide after 10 seconds
-
+        successMsg.style.display = 'block';
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+        }, 10000); // hide after 10 seconds
 
         localStorage.removeItem('cart');
         document.getElementById('checkout-form').reset();
         document.getElementById('total-checkout').textContent = 'Total: ₹0';
-
       } else {
         alert('Order failed. Please try again.');
       }
