@@ -6,23 +6,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="nav-split">
-          <div class="nav-left">
-            <a href="index.html" class="home-btn">Home</a>
-          </div>
-      
-          <div class="logo-container">
-            <img src="logo.jpg" alt="iPic Logo" class="logo">
-          </div>
-      
-          <div class="nav-right">
-            <a href="cart.html" class="cart-btn">Cart </a>
-            <a href="orders.html" class="order-btn">My Orders</a>
-          </div>
-        </nav>
-      </header>
-      
+  <header>
+    <nav class="nav-split">
+      <div class="nav-left">
+        <a href="index.html" class="home-btn">Home</a>
+      </div>
+
+      <div class="logo-container">
+        <img src="logo.jpg" alt="iPic Logo" class="logo">
+      </div>
+
+      <div class="nav-right">
+        <a href="cart.html" class="cart-btn">Cart</a>
+        <a href="orders.html" class="order-btn">My Orders</a>
+      </div>
+    </nav>
+  </header>
 
   <main>
     <div id="orders-container">
@@ -36,8 +35,8 @@
   </footer>
 
   <script>
-    // Fetch orders from backend
-    fetch('https://i-pic-backend.onrender.com/api/products')
+    // ✅ Corrected endpoint: /api/orders
+    fetch('https://i-pic-backend.onrender.com/api/orders')
       .then(res => res.json())
       .then(orders => {
         const list = document.getElementById('orders-list');
