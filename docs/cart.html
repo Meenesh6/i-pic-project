@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Cart - iPic</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav-split">
+      <div class="nav-left">
+        <a href="index.html" class="home-btn">Home</a>
+      </div>
+
+      <div class="logo-container">
+        <img src="logo.jpg" alt="iPic Logo" class="logo" />
+      </div>
+
+      <div class="nav-right">
+        <a href="cart.html" class="cart-btn">Cart</a>
+        <a href="orders.html" class="order-btn">My Orders</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="cart-container">
+    <h2>Your Cart Items</h2>
+    <div id="cart-items"></div>
+
+    <div class="cart-actions">
+      <button id="clear-cart" class="clear-btn">🗑️ Clear Cart</button>
+      <a href="checkout.html" class="checkout-btn">💳 Go to Checkout</a>
+    </div>
+
+    <h3 id="total">Total: ₹0</h3>
+  </main>
+
+  <footer>
+    <p>© iPic. All rights reserved.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>

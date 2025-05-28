@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout - iPic</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav-split">
+      <div class="nav-left">
+        <a href="index.html" class="home-btn">Home</a>
+      </div>
+      <div class="logo-container">
+        <img src="logo.jpg" alt="iPic Logo" class="logo">
+      </div>
+      <div class="nav-right">
+        <a href="cart.html" class="cart-btn">Cart</a>
+        <a href="orders.html" class="order-btn">My Orders</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="checkout-container">
+    <h2>Checkout</h2>
+
+    <form id="checkout-form">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="address">Shipping Address:</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <h3 id="total-checkout">Total: ₹0</h3>
+
+      <div class="checkout-buttons">
+        <button type="submit" class="submit-btn">Place Order</button>
+        <a href="cart.html" class="cancel-btn">Cancel</a>
+      </div>
+    </form>
+
+    <!-- Optional success message -->
+    
+    <div id="success-msg" class="popup-success">
+      ✅ Your order has been placed successfully!
+    </div>
+    
+  </main>
+  <div id="success-msg" class="popup">Order Confirmed!</div>
+
+  <footer>
+    <p>© iPic. All rights reserved.</p>
+  </footer>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

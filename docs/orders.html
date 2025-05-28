@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orders - iPic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-split">
+          <div class="nav-left">
+            <a href="index.html" class="home-btn">Home</a>
+          </div>
+      
+          <div class="logo-container">
+            <img src="logo.jpg" alt="iPic Logo" class="logo">
+          </div>
+      
+          <div class="nav-right">
+            <a href="cart.html" class="cart-btn">Cart </a>
+            <a href="orders.html" class="order-btn">My Orders</a>
+          </div>
+        </nav>
+      </header>
+      
+
+  <main>
+    <div id="orders-container">
+      <h2>Orders:</h2>
+      <ul id="orders-list"></ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; iPic. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Fetch orders from backend
+    fetch('http://localhost:3000/api/orders')
+      .then(res => res.json())
+      .then(orders => {
+        const list = document.getElementById('orders-list');
+        if (!Array.isArray(orders) || orders.length === 0) {
+          list.innerHTML = '<li>No orders yet.</li>';
+          return;
+        }
+
+        orders.forEach(order => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <strong>${order.name}</strong> (${order.email})<br>
+            Address: ${order.address}<br>
+            Total: ₹${order.total}<br>
+            Placed At: ${new Date(order.placedAt).toLocaleString()}<br>
+            Items: ${order.cart.map(item => item.name).join(', ')}
+            <hr>
+          `;
+          list.appendChild(li);
+        });
+      })
+      .catch(err => {
+        console.error('Failed to fetch orders:', err);
+        document.getElementById('orders-container').innerHTML = '<p>Error loading orders.</p>';
+      });
+  </script>
+</body>
+</html>
